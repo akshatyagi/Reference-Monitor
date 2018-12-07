@@ -1,0 +1,14 @@
+# Clean up of existing file
+if "_testfile.txt.a" in listfiles():
+ removefile("_testfile.txt.a")
+if "_testfile.txt.b" in listfiles():
+ removefile("_testfile.txt.b")
+m1 = ABopenfile('_testfile.txt',True)
+
+try:
+  assert(not '_testfile.txt.a' in listfiles() or not '_testfile.txt.b' in listfiles())
+  m1.close()
+except:
+  log('File allowed non alphanumeric characters in its name')
+  
+

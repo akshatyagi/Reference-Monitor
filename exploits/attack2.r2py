@@ -1,0 +1,19 @@
+
+# Clean up of existing file
+if "testfile.txt.a" in listfiles():
+ removefile("testfile.txt.a")
+if "testfile.txt.b" in listfiles():
+ removefile("testfile.txt.b")
+m1 = ABopenfile('testfile.txt',True)
+m1.writeat('S123E',0)
+m1.close()
+m1 = ABopenfile('testfile.txt',False)
+m1.writeat('1234',0)
+m1.close()
+m1 = ABopenfile('testfile.txt',True)
+x = m1.readat(None,0)
+m1.close()
+try:
+  assert("S123E" == x) 
+except:
+  log('File written incorrectly')

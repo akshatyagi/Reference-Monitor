@@ -1,0 +1,12 @@
+# Clean up of existing file
+if "testfile.txt.a" in listfiles():
+ removefile("testfile.txt.a")
+if "testfile.txt.b" in listfiles():
+ removefile("testfile.txt.b")
+m1 = ABopenfile('testfile.txt',True)
+try:
+  m1.writeat('S123E',1000)
+  m1.close()
+except:
+  log('Offset handling not done')
+  m1.close()

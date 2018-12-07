@@ -1,0 +1,15 @@
+# Clean up of existing file
+if "testfile.txt.a" in listfiles():
+ removefile("testfile.txt.a")
+if "testfile.txt.b" in listfiles():
+ removefile("testfile.txt.b")
+m1 = ABopenfile('testfile.txt',True)
+m1.writeat('xyz123',0)
+m1.close()
+m1 = ABopenfile('testfile.txt',False)
+try:
+  assert("SE" == m1.readat(None,0))
+  m1.close()
+except:
+  log('File validity compromised')
+  m1.close()
